@@ -11,16 +11,14 @@ public class HomePage extends WebPage {
     private static final long serialVersionUID = 1L;
 
     @Inject
-    private Injector injector;
+    private Injector inj;
 
-    public HomePage(PageParameters parameters) {
-        super(parameters);
-
+    public HomePage(PageParameters pp) {
+        super(pp);
         add(new Label("version", getApplication().getFrameworkSettings().getVersion()));
-
-        SayHello say = injector.getInstance(SayHello.class);
-        add(new Label("hello", say.hello("john")));
-
+        add(new Label("hello", pp.get("s").toString(inj.getInstance(SayHello.class).hello(
+                "john"))));
+        add(inj.getInstance(SayHelloForm.class));
     }
 
 }
