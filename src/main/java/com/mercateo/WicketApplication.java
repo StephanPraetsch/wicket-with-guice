@@ -1,33 +1,29 @@
 package com.mercateo;
 
-import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.guice.GuiceComponentInjector;
 import org.apache.wicket.protocol.http.WebApplication;
 
-/**
- * Application object for your web application.
- * If you want to run this application without deploying, run the Start class.
- * 
- * @see com.mercateo.Start#main(String[])
- */
-public class WicketApplication extends WebApplication
-{
-	/**
-	 * @see org.apache.wicket.Application#getHomePage()
-	 */
-	@Override
-	public Class<? extends WebPage> getHomePage()
-	{
-		return HomePage.class;
-	}
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 
-	/**
-	 * @see org.apache.wicket.Application#init()
-	 */
-	@Override
-	public void init()
-	{
-		super.init();
+public class WicketApplication extends WebApplication {
 
-		// add your configuration here
-	}
+    private final Injector injector;
+
+    @Inject
+    public WicketApplication(Injector injector) {
+        this.injector = injector;
+    }
+
+    @Override
+    public Class<HomePage> getHomePage() {
+        return HomePage.class;
+    }
+
+    @Override
+    public void init() {
+        super.init();
+        getComponentInstantiationListeners().add(new GuiceComponentInjector(this, injector));
+    }
+
 }
