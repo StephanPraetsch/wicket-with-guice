@@ -1,29 +1,26 @@
 package com.mercateo;
 
-import javax.inject.Inject;
-
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
-import org.apache.wicket.model.Model;
+import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-public class SayHelloForm extends Form<Object> {
+public class SayHelloForm extends Form<String> {
 
-    private final TextField<String> inputField;
+    public SayHelloForm(String id, IModel<String> sayHelloModel) {
+        super(id, sayHelloModel);
+    }
 
-    @Inject
-    private SayHello say;
-
-    public SayHelloForm() {
-        super("helloForm");
-        this.inputField = new TextField<>("inputField", Model.of(""));
-        add(inputField);
+    @Override
+    protected void onInitialize() {
+        super.onInitialize();
+        add(new TextField<>("inputField", getModel()));
     }
 
     @Override
     public void onSubmit() {
         PageParameters pp = new PageParameters();
-        pp.add("s", say.hello(inputField.getModelObject()));
+        pp.add("s", getModelObject());
         setResponsePage(HomePage.class, pp);
     }
 
