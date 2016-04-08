@@ -5,7 +5,6 @@ import java.util.Iterator;
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.SortOrder;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.Model;
 
 public class FoobarSortableDataProvider extends SortableDataProvider<Foobar, String> {
 
@@ -13,7 +12,7 @@ public class FoobarSortableDataProvider extends SortableDataProvider<Foobar, Str
 
     public FoobarSortableDataProvider(FoobarRepo repo) {
         this.repo = repo;
-        setSort("ldt", SortOrder.ASCENDING);
+        setSort(Foobar.PROPERTY_LDT, SortOrder.ASCENDING);
     }
 
     @Override
@@ -34,9 +33,7 @@ public class FoobarSortableDataProvider extends SortableDataProvider<Foobar, Str
 
     @Override
     public IModel<Foobar> model(Foobar object) {
-        // ROBERT ist das richtig so? dafür musste ich Foobar Serializable
-        // machen
-        return new Model<>(object);
+        return new FoobarModel(repo, object);
     }
 
 }

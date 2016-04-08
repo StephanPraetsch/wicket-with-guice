@@ -1,21 +1,22 @@
 package com.mercateo.wicket.with.guice.foobar;
 
-import java.util.Set;
-
 import org.apache.wicket.model.LoadableDetachableModel;
 
-// ROBERT unbenutzt, würdest du das so nutzen? wie?
-public class FoobarModel extends LoadableDetachableModel<Set<Foobar>> {
+public class FoobarModel extends LoadableDetachableModel<Foobar> {
 
     private final FoobarRepo repo;
 
-    public FoobarModel(FoobarRepo repo) {
+    private final Integer id;
+
+    public FoobarModel(FoobarRepo repo, Foobar foo) {
+        super(foo);
         this.repo = repo;
+        this.id = foo.getI();
     }
 
     @Override
-    protected Set<Foobar> load() {
-        return repo.get();
+    protected Foobar load() {
+        return repo.get(id);
     }
 
 }

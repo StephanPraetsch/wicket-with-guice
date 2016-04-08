@@ -19,7 +19,6 @@ public class FoobarComparator implements Comparator<Foobar> {
 
         int compare = 0;
 
-        // ROBERT wie typisiert / kein string?
         if (property.equals(Foobar.PROPERTY_LDT)) {
             compare = o1.getLdt().compareTo(o2.getLdt());
         } else if (property.equals(Foobar.PROPERTY_I)) {

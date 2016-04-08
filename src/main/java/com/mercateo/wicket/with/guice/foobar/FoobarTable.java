@@ -11,6 +11,7 @@ import org.apache.wicket.model.Model;
 
 public class FoobarTable extends DefaultDataTable<Foobar, String> {
 
+    // siehe auch com.mercateo.common.wicket.backoffice.dialog.TableDialog<T, S>
     public FoobarTable(String id, ISortableDataProvider<Foobar, String> dataProvider) {
         super(id, columns(), dataProvider, 10);
     }
@@ -19,9 +20,12 @@ public class FoobarTable extends DefaultDataTable<Foobar, String> {
 
         List<IColumn<Foobar, String>> columns = new ArrayList<>();
 
-        // ROBERT wofür sind die 3 felder?
+        Model<String> title = new Model<String>(Foobar.PROPERTY_LDT);
+        String displayedValue = Foobar.PROPERTY_LDT;
+        String sortThisField = Foobar.PROPERTY_LDT;
+
         columns.add(new PropertyColumn<Foobar, String>( //
-                new Model<String>(Foobar.PROPERTY_LDT), Foobar.PROPERTY_LDT, Foobar.PROPERTY_LDT));
+                title, sortThisField, displayedValue));
 
         columns.add(new PropertyColumn<Foobar, String>( //
                 new Model<String>(Foobar.PROPERTY_I), Foobar.PROPERTY_I, Foobar.PROPERTY_I));

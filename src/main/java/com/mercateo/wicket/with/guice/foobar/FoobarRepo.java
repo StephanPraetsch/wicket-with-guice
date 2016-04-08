@@ -2,30 +2,31 @@ package com.mercateo.wicket.with.guice.foobar;
 
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 import java.util.function.Supplier;
 
 import com.google.inject.Singleton;
 
 @Singleton
-public class FoobarRepo implements Supplier<Set<Foobar>> {
+public class FoobarRepo implements Supplier<Collection<Foobar>> {
 
     private final Random r = new Random();
 
-    private Set<Foobar> foobars = Collections.emptySet();
+    private Map<Integer, Foobar> foobars = Collections.emptyMap();
 
     public FoobarRepo() {
         fillRepo();
     }
 
     public void fillRepo() {
-        foobars = new HashSet<>();
+        foobars = new HashMap<>();
         for (int i = 0; i < 100; i++) {
             LocalDateTime ldt = LocalDateTime.of(year(), month(), dayOfMonth(), hour(), minute());
-            foobars.add(new Foobar(ldt, Integer.valueOf(i)));
+            foobars.put(Integer.valueOf(i), new Foobar(ldt, Integer.valueOf(i)));
         }
     }
 
@@ -50,8 +51,12 @@ public class FoobarRepo implements Supplier<Set<Foobar>> {
     }
 
     @Override
-    public Set<Foobar> get() {
-        return foobars;
+    public Collection<Foobar> get() {
+        return foobars.values();
+    }
+
+    public Foobar get(Integer id) {
+        return foobars.get(id);
     }
 
 }

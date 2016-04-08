@@ -1,9 +1,8 @@
 package com.mercateo.wicket.with.guice.foobar;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Foobar implements Serializable {
+public class Foobar {
 
     public static final String PROPERTY_LDT = "ldt";
 
