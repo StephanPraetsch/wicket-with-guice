@@ -1,4 +1,4 @@
-package com.mercateo;
+package com.mercateo.wicket.with.guice;
 
 import java.util.HashMap;
 import java.util.Map;

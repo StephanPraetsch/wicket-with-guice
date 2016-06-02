@@ -6,7 +6,7 @@
 	<display-name>wicket-with-guice</display-name>
 
 	<listener>
-		<listener-class>com.mercateo.MyGuiceServletConfig</listener-class>
+		<listener-class>com.mercateo.wicket.with.guice.MyGuiceServletConfig</listener-class>
 	</listener>
 
 	<filter>

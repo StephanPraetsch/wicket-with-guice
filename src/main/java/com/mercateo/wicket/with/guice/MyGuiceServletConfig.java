@@ -1,4 +1,4 @@
-package com.mercateo;
+package com.mercateo.wicket.with.guice;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;

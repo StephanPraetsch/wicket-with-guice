@@ -1,4 +1,4 @@
-package com.mercateo;
+package com.mercateo.wicket.with.guice;
 
 import org.apache.wicket.guice.GuiceComponentInjector;
 import org.apache.wicket.protocol.http.WebApplication;

@@ -1,13 +1,13 @@
-package com.mercateo;
+package com.mercateo.wicket.with.guice;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.Model;
 
 import com.google.inject.Inject;
-import com.mercateo.foobar.FoobarDao;
-import com.mercateo.foobar.FoobarSortableDataProvider;
-import com.mercateo.foobar.FoobarTable;
+import com.mercateo.wicket.with.guice.foobar.FoobarDao;
+import com.mercateo.wicket.with.guice.foobar.FoobarSortableDataProvider;
+import com.mercateo.wicket.with.guice.foobar.FoobarTable;
 
 public class HomePage extends WebPage {
 

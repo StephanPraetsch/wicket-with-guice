@@ -1,4 +1,4 @@
-package com.mercateo.foobar;
+package com.mercateo.wicket.with.guice.foobar;
 
 import java.util.Iterator;
 

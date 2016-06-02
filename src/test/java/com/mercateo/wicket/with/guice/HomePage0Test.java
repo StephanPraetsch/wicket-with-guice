@@ -1,4 +1,4 @@
-package com.mercateo;
+package com.mercateo.wicket.with.guice;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -11,10 +11,10 @@ import org.junit.Test;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.mercateo.HomePage;
-import com.mercateo.WicketApplication;
-import com.mercateo.foobar.Foobar;
-import com.mercateo.foobar.FoobarDao;
+import com.mercateo.wicket.with.guice.HomePage;
+import com.mercateo.wicket.with.guice.WicketApplication;
+import com.mercateo.wicket.with.guice.foobar.Foobar;
+import com.mercateo.wicket.with.guice.foobar.FoobarDao;
 
 public class HomePage0Test {
 
