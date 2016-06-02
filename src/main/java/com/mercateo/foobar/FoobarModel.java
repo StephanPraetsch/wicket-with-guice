@@ -1,14 +1,14 @@
-package com.mercateo.wicket.with.guice.foobar;
+package com.mercateo.foobar;
 
 import org.apache.wicket.model.LoadableDetachableModel;
 
 public class FoobarModel extends LoadableDetachableModel<Foobar> {
 
-    private final FoobarRepo repo;
+    private final FoobarDao repo;
 
     private final Integer id;
 
-    public FoobarModel(FoobarRepo repo, Foobar foo) {
+    public FoobarModel(FoobarDao repo, Foobar foo) {
         super(foo);
         this.repo = repo;
         this.id = foo.getI();

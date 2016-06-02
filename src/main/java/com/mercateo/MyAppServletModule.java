@@ -14,6 +14,7 @@ import com.google.inject.Singleton;
 import com.google.inject.servlet.ServletModule;
 
 public class MyAppServletModule extends ServletModule {
+
     @Override
     protected void configureServlets() {
         filter("/*").through(WicketFilter.class, createWicketFilterInitParams());
@@ -37,6 +38,7 @@ public class MyAppServletModule extends ServletModule {
 
                 @Override
                 public void destroy(WicketFilter filter) {
+                    // nothing
                 }
             };
         }

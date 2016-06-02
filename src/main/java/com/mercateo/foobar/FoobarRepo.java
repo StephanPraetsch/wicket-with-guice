@@ -1,4 +1,4 @@
-package com.mercateo.wicket.with.guice.foobar;
+package com.mercateo.foobar;
 
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -7,12 +7,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import java.util.function.Supplier;
 
 import com.google.inject.Singleton;
 
 @Singleton
-public class FoobarRepo implements Supplier<Collection<Foobar>> {
+public class FoobarRepo implements FoobarDao {
 
     private final Random r = new Random();
 
@@ -55,6 +54,7 @@ public class FoobarRepo implements Supplier<Collection<Foobar>> {
         return foobars.values();
     }
 
+    @Override
     public Foobar get(Integer id) {
         return foobars.get(id);
     }

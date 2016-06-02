@@ -1,4 +1,4 @@
-package com.mercateo.wicket.with.guice.foobar;
+package com.mercateo.foobar;
 
 import java.time.LocalDateTime;
 
